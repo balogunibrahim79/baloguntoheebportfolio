@@ -1,0 +1,2627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Balogun Toheeb | Materials Modeling & AI Researcher</title>
+
+<meta name="description"
+content="PhD Candidate specializing in Materials Modeling, Atomistic Simulations, Machine Learning, Generative AI and AI-driven Materials Discovery.">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#030712;
+    --bg2:#07101f;
+    --card:rgba(10,20,40,.72);
+    --border:rgba(255,255,255,.09);
+    --text:#f5f8ff;
+    --muted:#91a0ba;
+    --cyan:#58e6ff;
+    --purple:#8f7cff;
+    --green:#57e5a0;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    radial-gradient(circle at 10% 10%,rgba(88,230,255,.07),transparent 30%),
+    radial-gradient(circle at 90% 20%,rgba(143,124,255,.08),transparent 30%),
+    var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:'Space Grotesk',sans-serif;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    background:rgba(3,7,18,.72);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar-brand{
+    color:#fff!important;
+    font-family:'Space Grotesk';
+    font-weight:700;
+    font-size:1.3rem;
+}
+
+.brand-dot{
+    color:var(--cyan);
+}
+
+.nav-link{
+    color:#aebbd0!important;
+    margin-left:18px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:var(--cyan)!important;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    padding-top:100px;
+}
+
+#scienceCanvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(90deg,
+    rgba(3,7,18,.98) 0%,
+    rgba(3,7,18,.85) 40%,
+    rgba(3,7,18,.35) 75%,
+    rgba(3,7,18,.75) 100%);
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:9px 15px;
+    border:1px solid rgba(88,230,255,.2);
+    background:rgba(88,230,255,.05);
+    border-radius:50px;
+    color:var(--cyan);
+    font-size:.78rem;
+    margin-bottom:25px;
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 15px var(--green);
+}
+
+.hero h1{
+    font-size:clamp(3.2rem,7vw,7rem);
+    line-height:.96;
+    letter-spacing:-5px;
+    font-weight:700;
+    max-width:900px;
+}
+
+.gradient-text{
+    background:linear-gradient(
+        90deg,
+        var(--cyan),
+        #ffffff,
+        var(--purple)
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-description{
+    max-width:760px;
+    color:var(--muted);
+    font-size:1.1rem;
+    line-height:1.9;
+    margin:30px 0;
+}
+
+.btn-main{
+    border:0;
+    background:linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--purple)
+    );
+    color:#020617;
+    font-weight:700;
+    padding:14px 24px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.btn-main:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 40px rgba(88,230,255,.2);
+    color:#020617;
+}
+
+.btn-outline-custom{
+    border:1px solid var(--border);
+    color:#fff;
+    padding:13px 23px;
+    border-radius:10px;
+    margin-left:10px;
+    transition:.3s;
+}
+
+.btn-outline-custom:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+}
+
+/* ================= FLOATING SCIENCE LABELS ================= */
+
+.science-label{
+    position:absolute;
+    z-index:2;
+    padding:8px 12px;
+    border:1px solid rgba(88,230,255,.15);
+    background:rgba(5,12,28,.65);
+    backdrop-filter:blur(10px);
+    border-radius:8px;
+    color:#9eeeff;
+    font-size:.68rem;
+    letter-spacing:1px;
+    pointer-events:none;
+}
+
+.label-one{
+    right:13%;
+    top:25%;
+}
+
+.label-two{
+    right:7%;
+    bottom:25%;
+}
+
+.label-three{
+    right:35%;
+    top:15%;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:110px 0;
+}
+
+.section-label{
+    color:var(--cyan);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:.72rem;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-size:clamp(2rem,4vw,3.3rem);
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.section-description{
+    color:var(--muted);
+    max-width:720px;
+    line-height:1.8;
+}
+
+/* ================= GLASS CARDS ================= */
+
+.glass-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:30px;
+    backdrop-filter:blur(18px);
+    transition:.35s;
+    height:100%;
+}
+
+.glass-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(88,230,255,.3);
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+
+.icon-box{
+    width:52px;
+    height:52px;
+    display:grid;
+    place-items:center;
+    border-radius:13px;
+    background:rgba(88,230,255,.08);
+    color:var(--cyan);
+    font-size:1.4rem;
+    margin-bottom:20px;
+}
+
+.glass-card p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* ================= STATS ================= */
+
+.research-number{
+    font-size:3rem;
+    font-weight:700;
+    color:var(--cyan);
+}
+
+.stat-card{
+    text-align:center;
+    padding:30px 15px;
+    border-right:1px solid var(--border);
+}
+
+.stat-label{
+    color:var(--muted);
+    font-size:.82rem;
+}
+
+/* ================= TAGS ================= */
+
+.tag{
+    display:inline-block;
+    padding:7px 11px;
+    border-radius:7px;
+    background:rgba(88,230,255,.06);
+    color:#b9f4ff;
+    border:1px solid rgba(88,230,255,.1);
+    font-size:.75rem;
+    margin:4px;
+}
+
+/* ================= PROJECTS ================= */
+
+.project-card{
+    overflow:hidden;
+    padding:0;
+}
+
+.project-visual{
+    height:230px;
+    position:relative;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at 30% 40%,rgba(88,230,255,.18),transparent 20%),
+    radial-gradient(circle at 70% 60%,rgba(143,124,255,.18),transparent 25%),
+    #050b19;
+}
+
+.project-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:28px 28px;
+}
+
+.atom{
+    position:absolute;
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 20px var(--cyan);
+    animation:floatAtom 4s infinite ease-in-out;
+}
+
+.atom.a1{left:20%;top:30%}
+.atom.a2{left:45%;top:55%;animation-delay:1s}
+.atom.a3{left:70%;top:30%;animation-delay:2s}
+.atom.a4{left:80%;top:70%;animation-delay:1.5s}
+.atom.a5{left:30%;top:75%;animation-delay:.5s}
+
+@keyframes floatAtom{
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+.project-content{
+    padding:28px;
+}
+
+.project-number{
+    color:var(--cyan);
+    font-size:.72rem;
+    letter-spacing:2px;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    position:relative;
+    max-width:900px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:12px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:var(--border);
+}
+
+.timeline-item{
+    position:relative;
+    padding-left:50px;
+    margin-bottom:50px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:6px;
+    top:5px;
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 15px var(--cyan);
+}
+
+.timeline-date{
+    color:var(--cyan);
+    font-size:.78rem;
+    font-weight:700;
+}
+
+.timeline-item p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* ================= PUBLICATIONS ================= */
+
+.publication{
+    padding:28px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.publication:last-child{
+    border-bottom:0;
+}
+
+.publication-year{
+    color:var(--cyan);
+    font-size:.78rem;
+}
+
+.publication p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+    padding:60px;
+    border-radius:25px;
+    border:1px solid var(--border);
+    background:
+    radial-gradient(circle at 90% 10%,rgba(88,230,255,.12),transparent 30%),
+    radial-gradient(circle at 10% 90%,rgba(143,124,255,.12),transparent 30%),
+    var(--card);
+}
+
+.form-control{
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--border);
+    color:#fff;
+    padding:14px;
+    border-radius:10px;
+}
+
+.form-control:focus{
+    background:rgba(255,255,255,.05);
+    border-color:var(--cyan);
+    color:#fff;
+    box-shadow:none;
+}
+
+.form-control::placeholder{
+    color:#65718b;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:35px 0;
+    color:var(--muted);
+}
+
+.social-link{
+    width:40px;
+    height:40px;
+    display:inline-grid;
+    place-items:center;
+    border:1px solid var(--border);
+    border-radius:10px;
+    color:var(--muted);
+    margin-left:7px;
+    transition:.3s;
+}
+
+.social-link:hover{
+    color:var(--cyan);
+    border-color:var(--cyan);
+}
+
+/* ================= BACK TOP ================= */
+
+.back-top{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:45px;
+    height:45px;
+    border:0;
+    border-radius:12px;
+    background:var(--cyan);
+    color:#020617;
+    display:none;
+    place-items:center;
+    z-index:1000;
+}
+
+/* ================= ANIMATION ================= */
+
+.fade-up{
+    opacity:0;
+    transform:translateY(30px);
+    transition:.8s ease;
+}
+
+.fade-up.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ======================================================
+   RESEARCHER PROFILE
+====================================================== */
+
+#profile{
+    position:relative;
+    overflow:hidden;
+}
+
+.profile-photo-wrapper{
+    width:340px;
+    height:340px;
+    margin:auto;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.profile-photo{
+    width:270px;
+    height:270px;
+    object-fit:cover;
+    border-radius:50%;
+    position:relative;
+    z-index:3;
+    border:4px solid rgba(88,230,255,.25);
+    box-shadow:
+        0 0 40px rgba(88,230,255,.12),
+        0 0 100px rgba(143,124,255,.08);
+}
+
+
+/* Animated rings */
+
+.photo-ring{
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(88,230,255,.2);
+    animation:profileRotate 12s linear infinite;
+}
+
+.ring-one{
+    width:310px;
+    height:310px;
+}
+
+.ring-two{
+    width:340px;
+    height:340px;
+    border-color:rgba(143,124,255,.18);
+    animation-duration:18s;
+    animation-direction:reverse;
+}
+
+
+@keyframes profileRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* Small researcher badge */
+
+.profile-badge{
+    position:absolute;
+    bottom:20px;
+    right:5px;
+    z-index:5;
+
+    background:rgba(5,12,28,.9);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(88,230,255,.2);
+
+    padding:9px 14px;
+
+    border-radius:50px;
+
+    color:#b8f4ff;
+
+    font-size:.72rem;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.profile-badge i{
+    color:var(--cyan);
+    margin-right:5px;
+}
+
+
+/* Research title */
+
+.profile-title{
+    color:#b9c5d9;
+    font-weight:500;
+    margin-bottom:20px;
+}
+
+
+/* Research focus grid */
+
+.research-focus{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:25px;
+}
+
+.focus-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px 14px;
+
+    background:rgba(255,255,255,.025);
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    color:#b9c5d9;
+
+    font-size:.82rem;
+
+    transition:.3s;
+}
+
+.focus-item i{
+    color:var(--cyan);
+}
+
+.focus-item:hover{
+    border-color:rgba(88,230,255,.3);
+    transform:translateX(4px);
+}
+
+
+/* Social icons */
+
+.profile-social{
+    width:40px;
+    height:40px;
+
+    display:inline-grid;
+    place-items:center;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    color:#8f9bb1;
+
+    margin-right:7px;
+
+    transition:.3s;
+}
+
+.profile-social:hover{
+    color:var(--cyan);
+    border-color:var(--cyan);
+    transform:translateY(-3px);
+}
+
+
+/* Mobile */
+
+@media(max-width:576px){
+
+    .profile-photo-wrapper{
+        width:290px;
+        height:290px;
+    }
+
+    .profile-photo{
+        width:230px;
+        height:230px;
+    }
+
+    .ring-one{
+        width:265px;
+        height:265px;
+    }
+
+    .ring-two{
+        width:290px;
+        height:290px;
+    }
+
+    .research-focus{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:991px){
+
+    .hero::after{
+        background:
+        linear-gradient(
+        90deg,
+        rgba(3,7,18,.95),
+        rgba(3,7,18,.8)
+        );
+    }
+
+    .science-label{
+        display:none;
+    }
+
+    .nav-link{
+        margin-left:0;
+    }
+
+    .stat-card{
+        border-right:0;
+        border-bottom:1px solid var(--border);
+    }
+
+    .contact-box{
+        padding:30px;
+    }
+}
+
+@media(max-width:576px){
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .btn-outline-custom{
+        margin-left:0;
+        margin-top:10px;
+    }
+
+    section{
+        padding:80px 0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ======================================================
+NAVBAR
+====================================================== -->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand" href="#profile">
+AM<span class="brand-dot">.</span>
+</a>
+
+<button
+class="navbar-toggler bg-light"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#about">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#research">Research</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#projects">Projects</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#experience">Experience</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#publications">Publications</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#contact">Contact</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+</nav>
+
+
+<!-- ======================================================
+     RESEARCHER PROFILE
+====================================================== -->
+
+<section id="profile">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <!-- PHOTO -->
+            <div class="col-lg-5 text-center fade-up">
+
+                <div class="profile-photo-wrapper">
+
+                    <!-- Replace brother-photo.jpg with his actual image -->
+                    <img
+                        src="IMG_E7247.JPG"
+                        alt=" - Materials Modeling Researcher"
+                        class="profile-photo"
+                    >
+
+                    <div class="photo-ring ring-one"></div>
+                    <div class="photo-ring ring-two"></div>
+
+                    <div class="profile-badge">
+                        <i class="bi bi-patch-check-fill"></i>
+                        PhD Researcher
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE INFORMATION -->
+            <div class="col-lg-7 fade-up">
+
+                <div class="section-label">
+                    Researcher Profile
+                </div>
+
+                <h2 class="section-title">
+                    Balogun Toheeb
+                </h2>
+
+                <h5 class="profile-title">
+                    PhD Candidate in Materials Modeling & Computational Science
+                </h5>
+
+                <p class="section-description">
+
+                    Researcher exploring the intersection of
+                    computational materials science, atomistic
+                    simulations, machine learning and artificial
+                    intelligence for next-generation materials discovery.
+
+                </p>
+
+
+                <div class="research-focus">
+
+                    <div class="focus-item">
+                        <i class="bi bi-atom"></i>
+                        <span>Materials Modeling</span>
+                    </div>
+
+                    <div class="focus-item">
+                        <i class="bi bi-cpu"></i>
+                        <span>Machine Learning</span>
+                    </div>
+
+                    <div class="focus-item">
+                        <i class="bi bi-stars"></i>
+                        <span>Generative AI</span>
+                    </div>
+
+                    <div class="focus-item">
+                        <i class="bi bi-robot"></i>
+                        <span>Agentic AI</span>
+                    </div>
+
+                    <div class="focus-item">
+                        <i class="bi bi-diagram-3"></i>
+                        <span>MLIP / MLFF</span>
+                    </div>
+
+                    <div class="focus-item">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Deep Learning</span>
+                    </div>
+
+                </div>
+
+
+                <div class="mt-4">
+
+                    <a
+                        href="cv.pdf"
+                        class="btn btn-main"
+                        download
+                    >
+
+                        <i class="bi bi-file-earmark-pdf me-2"></i>
+                        Download CV
+
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="btn btn-outline-custom"
+                    >
+
+                        Contact Me
+
+                    </a>
+
+                </div>
+
+
+                <div class="profile-socials mt-4">
+
+                    <a href="https://www.linkedin.com/in/btoheeb" target="_blank" class="profile-social">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <!-- <a href="https://mail.google.com/mail/?view=cm&fs=1&to=baloguntoheebola@gmail.com" target="_blank class="profile-social">
+                        <i class="bi bi-google"></i>
+                    </a> -->
+
+                    <!-- <a href="#" class="profile-social">
+                        <i class="bi bi-github"></i>
+                    </a> -->
+
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=baloguntoheebola@gmail.com" class="profile-social">
+                        <i class="bi bi-envelope"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+HERO
+====================================================== -->
+
+<section class="hero" id="home">
+
+<canvas id="scienceCanvas"></canvas>
+
+<div class="science-label label-one">
+ATOMISTIC SIMULATION
+</div>
+
+<div class="science-label label-two">
+AI MATERIALS DISCOVERY
+</div>
+
+<div class="science-label label-three">
+MLIP / MLFF
+</div>
+
+
+<div class="container hero-content">
+
+<div class="eyebrow">
+
+<span class="status-dot"></span>
+
+PhD Candidate • Computational Materials Science
+
+</div>
+
+
+<h1>
+
+Engineering the
+<br>
+
+<span class="gradient-text">
+Future of Materials
+</span>
+
+with AI.
+
+</h1>
+
+
+<p class="hero-description">
+
+I am a PhD researcher working at the intersection of
+materials modeling, atomistic simulations, machine learning,
+and generative & agentic AI to accelerate the discovery and
+design of next-generation materials.
+
+</p>
+
+
+<a href="#research" class="btn btn-main">
+
+Explore My Research
+
+<i class="bi bi-arrow-down ms-2"></i>
+
+</a>
+
+
+<a href="#contact" class="btn btn-outline-custom">
+
+Let's Collaborate
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+STATS
+====================================================== -->
+
+<section class="pt-0">
+
+<div class="container">
+
+<div class="glass-card p-0">
+
+<div class="row g-0">
+
+<div class="col-md-3">
+
+<div class="stat-card">
+
+<div class="research-number">05+</div>
+
+<div class="stat-label">
+Years Research Experience
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="stat-card">
+
+<div class="research-number">20+</div>
+
+<div class="stat-label">
+Materials Systems Studied
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="stat-card">
+
+<div class="research-number">12+</div>
+
+<div class="stat-label">
+Research Projects
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-3">
+
+<div class="stat-card">
+
+<div class="research-number">08+</div>
+
+<div class="stat-label">
+Research Presentations
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+ABOUT
+====================================================== -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="row align-items-center g-5">
+
+<div class="col-lg-5 fade-up">
+
+<div class="section-label">
+01 / About Me
+</div>
+
+<h2 class="section-title">
+Where physics meets intelligence.
+</h2>
+
+<p class="section-description">
+
+My research focuses on developing computational approaches
+that combine fundamental physical principles with modern
+artificial intelligence techniques.
+
+</p>
+
+</div>
+
+
+<div class="col-lg-7 fade-up">
+
+<div class="glass-card">
+
+<h4>
+Research Profile
+</h4>
+
+<p>
+
+I am currently pursuing a PhD in Computational Materials
+Science, with research interests spanning atomistic
+simulations, machine learning and AI-assisted materials
+discovery.
+
+</p>
+
+<p>
+
+My work explores how classical simulations, quantum
+mechanical calculations, machine learning force fields,
+and generative AI can work together to reduce the
+computational cost of materials exploration.
+
+</p>
+
+<p class="mb-0">
+
+I am particularly interested in building intelligent
+computational workflows that allow AI agents to reason,
+simulate, evaluate and iteratively discover promising
+materials candidates.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+RESEARCH
+====================================================== -->
+
+<section id="research">
+
+<div class="container">
+
+<div class="section-label">
+02 / Research
+</div>
+
+<h2 class="section-title">
+Areas of Expertise
+</h2>
+
+<p class="section-description mb-5">
+
+My research sits at the intersection of computational physics,
+materials science and artificial intelligence.
+
+</p>
+
+
+<div class="row g-4">
+
+
+<div class="col-md-6 col-lg-4 fade-up">
+
+<div class="glass-card">
+
+<div class="icon-box">
+<i class="bi bi-cpu"></i>
+</div>
+
+<h4>
+Materials Modeling
+</h4>
+
+<p>
+Computational modeling of materials at multiple scales
+to understand structure, dynamics and properties.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-6 col-lg-4 fade-up">
+
+<div class="glass-card">
+
+<div class="icon-box">
+<i class="bi bi-atom"></i>
+</div>
+
+<h4>
+Atomistic Simulations
+</h4>
+
+<p>
+Classical molecular dynamics and quantum mechanical
+simulations for investigating atomic-scale behavior.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-6 col-lg-4 fade-up">
+
+<div class="glass-card">
+
+<div class="icon-box">
+<i class="bi bi-diagram-3"></i>
+</div>
+
+<h4>
+MLIP / MLFF
+</h4>
+
+<p>
+Machine learning interatomic potentials and force fields
+for efficient atomistic simulations.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-6 col-lg-4 fade-up">
+
+<div class="glass-card">
+
+<div class="icon-box">
+<i class="bi bi-stars"></i>
+</div>
+
+<h4>
+Generative AI
+</h4>
+
+<p>
+Exploring generative models for proposing novel materials,
+structures and candidates with desirable properties.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-6 col-lg-4 fade-up">
+
+<div class="glass-card">
+
+<div class="icon-box">
+<i class="bi bi-robot"></i>
+</div>
+
+<h4>
+Agentic AI
+</h4>
+
+<p>
+Designing intelligent research workflows where AI agents
+can assist with materials discovery and scientific reasoning.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-md-6 col-lg-4 fade-up">
+
+<div class="glass-card">
+
+<div class="icon-box">
+<i class="bi bi-graph-up-arrow"></i>
+</div>
+
+<h4>
+Machine & Deep Learning
+</h4>
+
+<p>
+Applying modern machine learning and deep learning methods
+to materials property prediction and scientific modeling.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+PROJECTS
+====================================================== -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-label">
+03 / Selected Work
+</div>
+
+<h2 class="section-title">
+Research Projects
+</h2>
+
+<p class="section-description mb-5">
+
+A selection of computational research projects exploring
+the convergence of AI, simulations and materials science.
+
+</p>
+
+
+<div class="row g-4">
+
+
+<!-- PROJECT 1 -->
+
+<div class="col-lg-6 fade-up">
+
+<div class="glass-card project-card">
+
+<div class="project-visual">
+
+<div class="atom a1"></div>
+<div class="atom a2"></div>
+<div class="atom a3"></div>
+<div class="atom a4"></div>
+<div class="atom a5"></div>
+
+</div>
+
+
+<div class="project-content">
+
+<div class="project-number">
+PROJECT 01
+</div>
+
+<h4>
+AI-Driven Materials Discovery
+</h4>
+
+<p>
+
+Development of an AI-assisted workflow for screening
+and prioritizing candidate materials based on predicted
+structural and physical properties.
+
+</p>
+
+<span class="tag">Generative AI</span>
+<span class="tag">Materials Discovery</span>
+<span class="tag">Machine Learning</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 2 -->
+
+<div class="col-lg-6 fade-up">
+
+<div class="glass-card project-card">
+
+<div class="project-visual">
+
+<div class="atom a1"></div>
+<div class="atom a2"></div>
+<div class="atom a3"></div>
+<div class="atom a4"></div>
+<div class="atom a5"></div>
+
+</div>
+
+
+<div class="project-content">
+
+<div class="project-number">
+PROJECT 02
+</div>
+
+<h4>
+Machine Learning Force Fields
+</h4>
+
+<p>
+
+Investigation of machine learning-based force fields
+capable of reproducing atomic interactions while
+reducing the computational cost of traditional simulations.
+
+</p>
+
+<span class="tag">MLFF</span>
+<span class="tag">MLIP</span>
+<span class="tag">Atomistic Simulation</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 3 -->
+
+<div class="col-lg-6 fade-up">
+
+<div class="glass-card project-card">
+
+<div class="project-visual">
+
+<div class="atom a1"></div>
+<div class="atom a2"></div>
+<div class="atom a3"></div>
+<div class="atom a4"></div>
+<div class="atom a5"></div>
+
+</div>
+
+
+<div class="project-content">
+
+<div class="project-number">
+PROJECT 03
+</div>
+
+<h4>
+Quantum Materials Simulation
+</h4>
+
+<p>
+
+Computational study of materials properties using
+quantum mechanical simulations to investigate
+electronic structures and atomic interactions.
+
+</p>
+
+<span class="tag">QMD</span>
+<span class="tag">Quantum Mechanics</span>
+<span class="tag">Materials Physics</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 4 -->
+
+<div class="col-lg-6 fade-up">
+
+<div class="glass-card project-card">
+
+<div class="project-visual">
+
+<div class="atom a1"></div>
+<div class="atom a2"></div>
+<div class="atom a3"></div>
+<div class="atom a4"></div>
+<div class="atom a5"></div>
+
+</div>
+
+
+<div class="project-content">
+
+<div class="project-number">
+PROJECT 04
+</div>
+
+<h4>
+Agentic AI for Scientific Discovery
+</h4>
+
+<p>
+
+Exploration of autonomous AI research agents capable
+of coordinating data analysis, computational experiments
+and candidate evaluation in materials discovery workflows.
+
+</p>
+
+<span class="tag">Agentic AI</span>
+<span class="tag">LLMs</span>
+<span class="tag">Scientific AI</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+TECHNICAL TOOLKIT
+====================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label">
+04 / Technical Stack
+</div>
+
+<h2 class="section-title">
+Computational Toolkit
+</h2>
+
+<p class="section-description mb-4">
+
+Technologies and computational methods used across research
+and scientific workflows.
+
+</p>
+
+
+<div class="glass-card">
+
+<h5>
+Programming & Data Science
+</h5>
+
+<span class="tag">Python</span>
+<span class="tag">NumPy</span>
+<span class="tag">SciPy</span>
+<span class="tag">Pandas</span>
+<span class="tag">Matplotlib</span>
+
+
+<hr class="border-secondary my-4">
+
+
+<h5>
+Machine Learning
+</h5>
+
+<span class="tag">PyTorch</span>
+<span class="tag">TensorFlow</span>
+<span class="tag">Deep Learning</span>
+<span class="tag">Neural Networks</span>
+<span class="tag">Representation Learning</span>
+
+
+<hr class="border-secondary my-4">
+
+
+<h5>
+Computational Materials
+</h5>
+
+<span class="tag">Classical MD</span>
+<span class="tag">QMD</span>
+<span class="tag">MLIP</span>
+<span class="tag">MLFF</span>
+<span class="tag">Atomistic Modeling</span>
+
+
+<hr class="border-secondary my-4">
+
+
+<h5>
+Artificial Intelligence
+</h5>
+
+<span class="tag">Generative AI</span>
+<span class="tag">Agentic AI</span>
+<span class="tag">LLMs</span>
+<span class="tag">Scientific AI</span>
+<span class="tag">AI-assisted Discovery</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+EXPERIENCE
+====================================================== -->
+
+<section id="experience">
+
+<div class="container">
+
+<div class="section-label">
+05 / Journey
+</div>
+
+<h2 class="section-title">
+Academic & Research Journey
+</h2>
+
+<div class="timeline-item fade-up">
+
+<span class="timeline-dot"></span>
+
+<div class="timeline-date">
+May, 2026 — August, 2026
+</div>
+
+<h4>
+Internship — Argonne National Laboratory
+</h4>
+
+<p>
+
+Focused on how to use high-performance computing and molecular dynamics simulations to investigate how polymer membranes transport gases and ions for energy applications. Studied how polymer structure affects gas transport and ion movement, providing atomic-scale insights that could help guide the design of novel materials for fuel cells, carbon dioxide conversion, and gas separation.
+
+</p>
+
+</div>
+
+<div class="timeline mt-5">
+
+
+<div class="timeline-item fade-up">
+
+<span class="timeline-dot"></span>
+
+<div class="timeline-date">
+July, 2023 — PRESENT
+</div>
+
+<h4>
+PhD Candidate — Lousiana State University
+</h4>
+
+<p>
+
+Department of Materials Science & Engineering,
+Lousiana State University. Research focused on computational
+materials modeling, machine learning potentials and
+AI-assisted materials discovery.
+
+</p>
+
+</div>
+
+
+<div class="timeline-item fade-up">
+
+<span class="timeline-dot"></span>
+
+<div class="timeline-date">
+August, 2022 —  August, 2025
+</div>
+
+<h4>
+Master of Science — Lousiana State University
+</h4>
+
+<p>
+
+Developed advanced knowledge and practical expertise in chemical process design, process optimization, thermodynamics. reaction engineering, heat and mass transfer, process control, and process safety. Conducted research, performed laboratory experiments and interpreted engineering data, applied mathematical and computational models and using engineering tools to evaluate and improve chemical processes.
+
+</p>
+
+</div>
+
+
+<div class="timeline-item fade-up">
+
+<span class="timeline-dot"></span>
+
+<div class="timeline-date">
+2018 — 2021
+</div>
+
+<h4>
+MSc — Materials Science & Computational Physics
+</h4>
+
+<p>
+
+Graduate research involving computational modeling,
+numerical simulations and machine learning techniques
+for materials characterization.
+
+</p>
+
+</div>
+
+
+<div class="timeline-item fade-up">
+
+<span class="timeline-dot"></span>
+
+<div class="timeline-date">
+2014 — 2018
+</div>
+
+<h4>
+BSc — Physics / Materials Science
+</h4>
+
+<p>
+
+Undergraduate studies with emphasis on computational
+physics, materials science and mathematical modeling.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+PUBLICATIONS
+====================================================== -->
+
+<section id="publications">
+
+<div class="container">
+
+<div class="section-label">
+06 / Publications
+</div>
+
+<h2 class="section-title">
+Selected Research
+</h2>
+
+<p class="section-description mb-4">
+
+Replace these placeholder publications with your brother's
+actual papers, preprints and conference contributions.
+
+</p>
+
+
+<div class="glass-card">
+
+
+<div class="publication">
+
+<span class="publication-year">
+2026
+</span>
+
+<h5>
+Machine Learning Potentials for Accelerated Atomistic Materials Simulation
+</h5>
+
+<p>
+
+A computational framework for integrating machine learning
+force fields into high-throughput atomistic simulations.
+
+</p>
+
+<span class="tag">
+Journal Article
+</span>
+
+<span class="tag">
+MLFF
+</span>
+
+</div>
+
+
+<div class="publication">
+
+<span class="publication-year">
+2025
+</span>
+
+<h5>
+Generative Artificial Intelligence for Next-Generation Materials Discovery
+</h5>
+
+<p>
+
+Exploring generative models as a computational strategy
+for discovering candidate materials with targeted properties.
+
+</p>
+
+<span class="tag">
+Research Paper
+</span>
+
+<span class="tag">
+Generative AI
+</span>
+
+</div>
+
+
+<div class="publication">
+
+<span class="publication-year">
+2024
+</span>
+
+<h5>
+Multiscale Computational Modeling of Advanced Materials
+</h5>
+
+<p>
+
+Investigation of multiscale simulation strategies for
+connecting atomistic behavior with macroscopic properties.
+
+</p>
+
+<span class="tag">
+Conference
+</span>
+
+<span class="tag">
+Materials Modeling
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+RESEARCH PHILOSOPHY
+====================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-9 text-center">
+
+<div class="section-label">
+07 / Research Philosophy
+</div>
+
+<h2 class="section-title">
+
+"The next generation of materials discovery will be
+computational, intelligent and autonomous."
+
+</h2>
+
+<p class="section-description mx-auto">
+
+My goal is to bridge physics-based understanding with
+artificial intelligence, creating computational systems
+capable of exploring enormous materials spaces faster
+and more intelligently than traditional approaches alone.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+CONTACT
+====================================================== -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<div class="row g-5 align-items-center">
+
+
+<div class="col-lg-5">
+
+<div class="section-label">
+08 / Contact
+</div>
+
+<h2 class="section-title">
+Let's advance materials discovery.
+</h2>
+
+<p class="section-description">
+
+Interested in research collaboration, computational
+materials science, AI for scientific discovery,
+or academic opportunities?
+
+</p>
+
+<div class="mt-4">
+
+<p>
+<i class="bi bi-envelope text-info me-2"></i>
+baloguntoheebola@gmail.com
+</p>
+
+<p>
+<i class="bi bi-geo-alt text-info me-2"></i>
+Department of Materials Science, Lousiana State University, United States
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-7">
+
+<form id="contactForm">
+
+<div class="row g-3">
+
+<div class="col-md-6">
+
+<input
+type="text"
+class="form-control"
+placeholder="Your Name"
+required>
+
+</div>
+
+
+<div class="col-md-6">
+
+<input
+type="email"
+class="form-control"
+placeholder="Your Email"
+required>
+
+</div>
+
+
+<div class="col-12">
+
+<input
+type="text"
+class="form-control"
+placeholder="Subject"
+required>
+
+</div>
+
+
+<div class="col-12">
+
+<textarea
+class="form-control"
+rows="6"
+placeholder="Tell me about your research or collaboration idea..."
+required></textarea>
+
+</div>
+
+
+<div class="col-12">
+
+<button
+class="btn btn-main"
+type="submit">
+
+Send Message
+
+<i class="bi bi-send ms-2"></i>
+
+</button>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+FOOTER
+====================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-md-6">
+
+<strong>
+Balogun Toheeb<span class="brand-dot">.</span>
+</strong>
+
+<p class="mb-0 mt-2">
+Materials Modeling • AI • Scientific Discovery
+</p>
+
+</div>
+
+
+<div class="col-md-6 text-md-end mt-3 mt-md-0">
+
+<a href="https://www.linkedin.com/in/btoheeb" class="social-link">
+<i class="bi bi-linkedin"></i>
+</a>
+
+<!-- <a href="#" class="social-link">
+<i class="bi bi-github"></i>
+</a> -->
+
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=baloguntoheebola@gmail.com" class="social-link">
+<i class="bi bi-google"></i>
+</a>
+
+<!-- <a href="#" class="social-link">
+<i class="bi bi-envelope"></i>
+</a> -->
+
+</div>
+
+</div>
+
+
+<hr class="border-secondary opacity-25 my-4">
+
+
+<div class="text-center small">
+
+© <span id="year"></span>
+Balogun Toheeb. All rights reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<button class="back-top" id="backTop">
+
+<i class="bi bi-arrow-up"></i>
+
+</button>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+
+/* ======================================================
+   SCIENTIFIC AI / ATOMIC VISUALIZATION
+====================================================== */
+
+const canvas = document.getElementById("scienceCanvas");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+let mouse = {
+    x: null,
+    y: null
+};
+
+function resizeCanvas(){
+
+    canvas.width = window.innerWidth;
+    canvas.height = document.querySelector(".hero").offsetHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener("resize",resizeCanvas);
+
+
+/* Create scientific particles */
+
+function createParticles(){
+
+    particles = [];
+
+    const amount =
+        window.innerWidth < 600 ? 45 : 95;
+
+    for(let i=0;i<amount;i++){
+
+        particles.push({
+
+            x:Math.random()*canvas.width,
+
+            y:Math.random()*canvas.height,
+
+            radius:
+                Math.random()*2.5 + .8,
+
+            speedX:
+                (Math.random()-.5)*.35,
+
+            speedY:
+                (Math.random()-.5)*.35,
+
+            pulse:
+                Math.random()*Math.PI*2,
+
+            type:
+                Math.random()>.7 ? "atom" : "node"
+
+        });
+
+    }
+
+}
+
+createParticles();
+
+
+/* Mouse interaction */
+
+window.addEventListener("mousemove",(e)=>{
+
+    const rect =
+        canvas.getBoundingClientRect();
+
+    mouse.x =
+        e.clientX - rect.left;
+
+    mouse.y =
+        e.clientY - rect.top;
+
+});
+
+
+window.addEventListener("mouseleave",()=>{
+
+    mouse.x=null;
+    mouse.y=null;
+
+});
+
+
+/* Draw particles */
+
+function drawParticles(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    /* Grid */
+
+    ctx.strokeStyle =
+        "rgba(88,230,255,.025)";
+
+    ctx.lineWidth=.5;
+
+    const grid=70;
+
+    for(let x=0;x<canvas.width;x+=grid){
+
+        ctx.beginPath();
+
+        ctx.moveTo(x,0);
+        ctx.lineTo(x,canvas.height);
+
+        ctx.stroke();
+
+    }
+
+    for(let y=0;y<canvas.height;y+=grid){
+
+        ctx.beginPath();
+
+        ctx.moveTo(0,y);
+        ctx.lineTo(canvas.width,y);
+
+        ctx.stroke();
+
+    }
+
+
+    /* Connections */
+
+    for(let i=0;i<particles.length;i++){
+
+        for(let j=i+1;j<particles.length;j++){
+
+            const p1=particles[i];
+            const p2=particles[j];
+
+            const dx=p1.x-p2.x;
+            const dy=p1.y-p2.y;
+
+            const distance =
+                Math.sqrt(dx*dx+dy*dy);
+
+            if(distance<125){
+
+                const opacity =
+                    1-distance/125;
+
+                ctx.strokeStyle =
+                    `rgba(88,230,255,${opacity*.16})`;
+
+                ctx.beginPath();
+
+                ctx.moveTo(p1.x,p1.y);
+                ctx.lineTo(p2.x,p2.y);
+
+                ctx.stroke();
+
+            }
+
+        }
+
+    }
+
+
+    /* Particles */
+
+    particles.forEach(p=>{
+
+        p.x+=p.speedX;
+        p.y+=p.speedY;
+
+        p.pulse+=.03;
+
+
+        if(p.x<0 || p.x>canvas.width)
+            p.speedX*=-1;
+
+        if(p.y<0 || p.y>canvas.height)
+            p.speedY*=-1;
+
+
+        /* Mouse attraction */
+
+        if(mouse.x!==null){
+
+            const dx=mouse.x-p.x;
+            const dy=mouse.y-p.y;
+
+            const distance=
+                Math.sqrt(dx*dx+dy*dy);
+
+            if(distance<180){
+
+                p.x+=dx*.0008;
+                p.y+=dy*.0008;
+
+            }
+
+        }
+
+
+        const glow=
+            0.5+
+            Math.sin(p.pulse)*.25;
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.radius,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle =
+            p.type==="atom"
+            ? `rgba(143,124,255,${glow})`
+            : `rgba(88,230,255,${glow})`;
+
+        ctx.shadowBlur=12;
+
+        ctx.shadowColor=
+            p.type==="atom"
+            ? "#8f7cff"
+            : "#58e6ff";
+
+        ctx.fill();
+
+        ctx.shadowBlur=0;
+
+    });
+
+
+    /* Large atom structure */
+
+    const centerX =
+        canvas.width*0.78;
+
+    const centerY =
+        canvas.height*.53;
+
+
+    if(canvas.width>700){
+
+        const orbitSizes=[
+            100,
+            160,
+            220
+        ];
+
+
+        orbitSizes.forEach((radius,index)=>{
+
+            ctx.beginPath();
+
+            ctx.ellipse(
+                centerX,
+                centerY,
+                radius,
+                radius*.35,
+                index*.55,
+                0,
+                Math.PI*2
+            );
+
+            ctx.strokeStyle=
+                "rgba(88,230,255,.13)";
+
+            ctx.stroke();
+
+        });
+
+
+        /* nucleus */
+
+        ctx.beginPath();
+
+        ctx.arc(
+            centerX,
+            centerY,
+            24,
+            0,
+            Math.PI*2
+        );
+
+        const gradient=
+            ctx.createRadialGradient(
+                centerX,
+                centerY,
+                2,
+                centerX,
+                centerY,
+                30
+            );
+
+        gradient.addColorStop(
+            0,
+            "rgba(255,255,255,.9)"
+        );
+
+        gradient.addColorStop(
+            .3,
+            "rgba(88,230,255,.8)"
+        );
+
+        gradient.addColorStop(
+            1,
+            "rgba(88,230,255,0)"
+        );
+
+        ctx.fillStyle=gradient;
+
+        ctx.fill();
+
+    }
+
+
+    requestAnimationFrame(drawParticles);
+
+}
+
+drawParticles();
+
+
+/* ======================================================
+   SCROLL REVEAL
+====================================================== */
+
+const observer=
+new IntersectionObserver(
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},
+{
+    threshold:.12
+});
+
+
+document
+.querySelectorAll(".fade-up")
+.forEach(el=>observer.observe(el));
+
+
+/* ======================================================
+   BACK TO TOP
+====================================================== */
+
+const backTop=
+document.getElementById("backTop");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>500){
+
+        backTop.style.display="grid";
+
+    }else{
+
+        backTop.style.display="none";
+
+    }
+
+});
+
+
+backTop.addEventListener("click",()=>{
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+
+
+/* ======================================================
+   YEAR
+====================================================== */
+
+document.getElementById("year").textContent=
+new Date().getFullYear();
+
+
+/* ======================================================
+   CONTACT FORM DEMO
+====================================================== */
+
+document
+.getElementById("contactForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    alert(
+        "Thank you! This demo form is ready to be connected to an email service."
+    );
+
+    this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
